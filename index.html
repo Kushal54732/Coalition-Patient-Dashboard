@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech.Care | Patient Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <a class="brand" href="#">
+            <span class="brand-icon">✚</span>
+            <span>Tech<span class="brand-dot">.</span>Care</span>
+        </a>
+
+        <nav class="navigation">
+            <a href="#" class="nav-link">⌂ <span>Overview</span></a>
+            <a href="#" class="nav-link active">♙ <span>Patients</span></a>
+            <a href="#" class="nav-link">▦ <span>Schedule</span></a>
+            <a href="#" class="nav-link">✉ <span>Message</span></a>
+            <a href="#" class="nav-link">▤ <span>Transactions</span></a>
+        </nav>
+
+        <div class="doctor-profile">
+            <div class="doctor-avatar">DR</div>
+            <div>
+                <strong>Doctor</strong>
+                <small>Healthcare Professional</small>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard">
+
+        <!-- LEFT: PATIENT SIDEBAR -->
+        <aside class="panel patient-sidebar">
+
+            <div class="section-heading">
+                <h2>Patients</h2>
+                <span class="search-icon">⌕</span>
+            </div>
+
+            <div id="patient-list">
+                <div class="loading">Loading patient...</div>
+            </div>
+
+        </aside>
+
+
+        <!-- CENTER: MAIN DASHBOARD -->
+        <main class="main-content">
+
+            <div class="welcome-row">
+                <div>
+                    <p class="eyebrow">PATIENT OVERVIEW</p>
+                    <h1>Diagnosis History</h1>
+                </div>
+                <span class="live-label"><span></span> Live patient data</span>
+            </div>
+
+
+            <!-- BLOOD PRESSURE -->
+            <section class="panel diagnosis-card">
+
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">HEALTH ANALYTICS</p>
+                        <h2>Blood Pressure</h2>
+                    </div>
+
+                    <span class="period-label">Recent history</span>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="bloodPressureChart"></canvas>
+                </div>
+
+                <div class="chart-legend">
+                    <span><i class="legend-dot systolic-dot"></i> Systolic</span>
+                    <span><i class="legend-dot diastolic-dot"></i> Diastolic</span>
+                </div>
+
+            </section>
+
+
+            <!-- VITAL CARDS -->
+            <section class="vital-cards">
+
+                <article class="vital-card respiratory">
+                    <div class="vital-icon">♧</div>
+                    <p>Respiratory Rate</p>
+                    <h2 id="respiratory-rate">--</h2>
+                    <span>breaths/min</span>
+                    <small id="respiratory-level">Latest reading</small>
+                </article>
+
+                <article class="vital-card temperature">
+                    <div class="vital-icon">♨</div>
+                    <p>Temperature</p>
+                    <h2 id="temperature">--</h2>
+                    <span>°F</span>
+                    <small id="temperature-level">Latest reading</small>
+                </article>
+
+                <article class="vital-card heart">
+                    <div class="vital-icon">♡</div>
+                    <p>Heart Rate</p>
+                    <h2 id="heart-rate">--</h2>
+                    <span>bpm</span>
+                    <small id="heart-level">Latest reading</small>
+                </article>
+
+            </section>
+
+
+            <!-- DIAGNOSTIC LIST -->
+            <section class="panel diagnostic-card">
+
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">MEDICAL RECORD</p>
+                        <h2>Diagnostic List</h2>
+                    </div>
+                    <span class="record-count" id="diagnosis-count">0 records</span>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Problem / Diagnosis</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="diagnostic-list">
+                            <tr>
+                                <td colspan="3">Loading diagnoses...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- RIGHT: PATIENT DETAILS -->
+        <aside class="right-column">
+
+            <section class="panel profile-card">
+
+                <div class="profile-cover"></div>
+
+                <div class="profile-avatar" id="profile-avatar">JT</div>
+
+                <h2 id="profile-name">Jessica Taylor</h2>
+                <p class="profile-subtitle">Patient Profile</p>
+
+                <div class="profile-details" id="profile-details">
+                    <p>Loading patient information...</p>
+                </div>
+
+            </section>
+
+
+            <!-- LAB RESULTS -->
+            <section class="panel lab-card">
+
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">TEST REPORTS</p>
+                        <h2>Lab Results</h2>
+                    </div>
+                    <span class="lab-icon">✚</span>
+                </div>
+
+                <div id="lab-results">
+                    <p class="loading">Loading lab results...</p>
+                </div>
+
+            </section>
+
+        </aside>
+
+    </div>
+
+
+    <footer class="footer">
+        <p>Tech.Care Patient Dashboard · Patient information displayed from the supplied API</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
